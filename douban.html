@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="./font_3544955_jgkonbtsils/iconfont.css">
+    <title>豆瓣电影</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            position: relative;
+            font-size: 12px;
+            line-height: 1.2;
+            background-color: #fff;
+        }
+
+        /* overflow: scroll 和 -webkit-overflow-scrolling: touch 是用于在移动设备上实现滚动效果的 CSS 属性和属性值。
+        overflow: scroll 属性用于控制当元素内容超出容器大小时，容器如何处理内容的显示方式。当设置为 scroll 时，容器会显示滚动条，用户可以通过滚动条来滚动内容。如果内容没有超出容器，那么滚动条是不会显示的。
+        -webkit-overflow-scrolling: touch 属性是针对移动设备的一个私有属性，用于控制滚动条滚动时的动画效果。当设置为 touch 时，滚动条的滚动会变得更加平滑和流畅，用户滚动时会有一种弹性的感觉。
+        需要注意的是，-webkit-overflow-scrolling: touch 属性只能在 iOS 设备上生效，并且只有在使用 Safari 浏览器或 Webview 中使用 Safari 渲染引擎时才会生效。在其它设备或浏览器中，这个属性会被忽略。
+        因此，如果需要在移动设备上实现流畅的滚动效果，可以使用 overflow: scroll 和 -webkit-overflow-scrolling: touch 这两个属性来实现。 */
+        main {
+            height: calc(100vh - 50px);
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        main>section {
+            display: none;
+        }
+
+        main>section:first-child {
+            display: block;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            border-top: 1px solid #ccc;
+            display: flex;
+        }
+
+        footer>div {
+            flex: 1;
+            text-align: center;
+        }
+
+        footer>div>span {
+            display: block;
+            padding: 3px;
+        }
+
+        footer .active {
+            color: #FF5722;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+    </main>
+    <footer>
+        <div class="active"><span class="iconfont icon-paihangbang"></span><span>Top520</span></div>
+        <div><span class="iconfont icon-diqu"></span><span>北美</span></div>
+        <div><span class="iconfont icon-sousuo"></span><span>搜索</span></div>
+    </footer>
+
+    <script>
+        $('footer>div').on('click', function () {
+            var index = $(this).index()
+            $('section').hide().eq(index).fadeIn()
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+</body>
+
+</html>
